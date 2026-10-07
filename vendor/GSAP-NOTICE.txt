@@ -1,0 +1,19 @@
+GSAP 3.13.0, MotionPathPlugin 3.13.0 and SplitText 3.13.0
+Copyright 2008-2025 GreenSock, Inc. All rights reserved.
+
+Used under the GSAP Standard License:
+https://gsap.com/standard-license
+
+Official distribution: https://www.npmjs.com/package/gsap/v/3.13.0
+Documentation: https://gsap.com/docs/v3/
+SplitText: https://gsap.com/docs/v3/Plugins/SplitText/
+Official repository: https://github.com/greensock/GSAP
+Pricing / free use: https://gsap.com/pricing/
+
+SplitText is bundled locally and needs no subscription, account or network
+connection for this presentation. English opening letters and whole Arabic
+words are animated with the matching GSAP 3.13.0 runtime.
+
+The original copyright and license notices are retained in the bundled code.
+This presentation is not an animation-authoring tool, a library redistribution
+service, or a visual website builder. It uses GSAP to animate its own scenes.
