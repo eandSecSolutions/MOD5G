@@ -1,0 +1,63 @@
+{
+  "provenance": {
+    "document": "MOD POC OVER 5G PULSE NETWORK 02-10-2026.pdf",
+    "page": 14,
+    "pdfSha256": "fce6a85d2462ee7ee80f862b9eb78a34dec2d1ed4dedb9cf60ef18e6d961a3ad",
+    "render": "pdf/p14.png",
+    "renderSha256": "ab7756c8f10b1f2cc5deba586f743fb1cbf85dc8c03943cb9da39c92e08a0182",
+    "renderWidth": 1920,
+    "renderHeight": 1080,
+    "method": "Independent visual transcription from PDF page 14. Bar intervals measured in the 1920px render, with raster edge uncertainty; not copied from implementation data."
+  },
+  "sourceYear": 2025,
+  "ticks": [["28", "SEP"], ["05", "OCT"], ["12", "OCT"], ["19", "OCT"], ["26", "OCT"], ["02", "NOV"], ["09", "NOV"], ["11", "NOV"]],
+  "sourceMarker": {
+    "literal": "TODAY / 30 SEP 2025 / (Wed)",
+    "date": "2025-09-30",
+    "actualWeekday": "Tuesday",
+    "handling": "Use only the historical reference date. The source weekday is inconsistent and the red line sits near its Wednesday column. Do not present it as live today or infer precise task dates from it."
+  },
+  "timeline": {"leftPx": 719, "rightPx": 1894, "units": 8, "edgeTolerancePx": 3},
+  "workstreams": [
+    {
+      "id": "shelter", "name": "DC on the Wheel", "subtitle": "Mahawi Camp",
+      "tasks": [
+        {"id": "01.01", "label": "Customer Access Approval", "rowY": 334, "barsPx": [[731, 792]]},
+        {"id": "01.02", "label": "Site Survey", "rowY": 365, "barsPx": [[787, 860]]},
+        {"id": "01.03", "label": "Shift DC Shelter to Mahawi Camp", "rowY": 396, "barsPx": [[857, 931]]},
+        {"id": "01.04", "label": "DC installation, power up and connectivity", "rowY": 426, "barsPx": [[926, 1037]]},
+        {"id": "01.05", "label": "Link Establishment between Pulse Core and Mahawi camp", "rowY": 454, "barsPx": [[927, 1038]]},
+        {"id": "01.06", "label": "Integration with Pulse core", "rowY": 480, "barsPx": [[1041, 1143]]}
+      ]
+    },
+    {
+      "id": "core", "name": "Mobile Core", "subtitle": "Re-configuration",
+      "tasks": [
+        {"id": "02.01", "label": "DC Access Approval", "rowY": 523, "barsPx": [[742, 827]]},
+        {"id": "02.02", "label": "PLMN ID confirmation by customer", "rowY": 556, "barsPx": [[818, 943]]},
+        {"id": "02.03", "label": "License renewal and configuration", "rowY": 588, "barsPx": [[960, 1052]]}
+      ]
+    },
+    {
+      "id": "ran", "name": "RAN Deployment", "subtitle": null,
+      "tasks": [
+        {"id": "03.01", "label": "Access Approval (Customer Premises)", "rowY": 630, "barsPx": [[741, 838]]},
+        {"id": "03.02", "label": "Site Survey", "rowY": 660, "barsPx": [[834, 927]]},
+        {"id": "03.03", "label": "Prepare BOQ & Required Materials", "rowY": 689, "barsPx": [[925, 1025]]},
+        {"id": "03.04", "label": "Release HW", "rowY": 716, "barsPx": [[1029, 1143]]},
+        {"id": "03.05", "label": "Civil & Power Arrangement", "rowY": 744, "barsPx": [[1140, 1282]]},
+        {"id": "03.06", "label": "RAN Installation", "rowY": 771, "barsPx": [[1279, 1512]]},
+        {"id": "03.07", "label": "Link Provisioning", "rowY": 800, "barsPx": [[1043, 1513], [1540, 1612]]},
+        {"id": "03.08", "label": "Commissioning & Integration", "rowY": 832, "barsPx": [[1647, 1724]]},
+        {"id": "03.09", "label": "Drive Test", "rowY": 858, "barsPx": [[1742, 1812]]}
+      ]
+    },
+    {
+      "id": "demonstration", "name": "UCs Integration", "subtitle": "and Demonstration",
+      "tasks": [
+        {"id": "04.01", "label": "Devices Integration and initial testing", "rowY": 904, "barsPx": [[1535, 1622]]},
+        {"id": "04.02", "label": "Customer Demonstration", "rowY": 935, "barsPx": [[1615, 1878]]}
+      ]
+    }
+  ]
+}
