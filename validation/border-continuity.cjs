@@ -1,0 +1,15 @@
+// Reproduces finite photograph edges, sensor restoration and the flag-hoist defect.
+const fs=require('fs'),path=require('path'),{JSDOM}=require('jsdom'),{createCanvas}=require('@napi-rs/canvas'),assert=require('assert/strict');
+const root=path.resolve(__dirname,'..'),d=new JSDOM('',{runScripts:'outside-only'}),w=d.window;
+w.HTMLCanvasElement.prototype.getContext=function(){return createCanvas(this.width||512,this.height||512).getContext('2d')};
+for(const p of ['vendor/three.min.js','vendor/three-helpers.js','scripts/cinema-assets.js','scripts/premium-kit.js','scripts/land-border-story.js','scripts/land-border-model.js','scripts/coastal-story.js','scripts/coastal-model.js'])w.eval(fs.readFileSync(root+'/'+p,'utf8'));
+try{for(const type of ['BORDER','COASTAL']){const m=w['MOD_'+type+'_MODEL'].create(),sky=m.scene.getObjectByName('continuous-landscape'),S=w['MOD_'+type+'_STORY'];
+ assert.ok(sky,'the scene always supplies its own continuous photographic sky');assert.equal(sky.frustumCulled,false);assert.equal(sky.material.transparent,false,'no second CSS photograph leaks through');
+ const finite=[];m.scene.traverse(o=>{if(o.isMesh&&o.geometry.type==='PlaneGeometry'&&o.material.map&&!o.material.fog&&o.geometry.parameters.width>100)finite.push(o)});assert.equal(finite.length,0,'no finite photo walls');
+ for(const aspect of [1,1.4,1.78,2.2])for(const t of [0,12,24,44,60,80]){m.update(S.sample(t),aspect,t);for(const cam of [m.camera,m.feedCamera]){sky.onBeforeRender(null,m.scene,cam);assert.ok(sky.material.uniforms.inverseProjection.value.equals(cam.projectionMatrixInverse),'sky follows the active sensor projection');assert.ok(sky.material.uniforms.cameraRotation.value.elements.every(Number.isFinite))}}
+ for(const n of [0,.5,1]){m.setNight(n);assert.equal(sky.material.uniforms.night.value,n);m.renderSensor({render(){assert.equal(sky.visible,false)}},m.feedCamera,true);assert.equal(sky.visible,true,'thermal rendering must restore the sky for the next optical frame')}
+ if(type==='COASTAL'){const f=m.scene.getObjectByName('uae-flag-cloth');assert.ok(f);for(const t of [44,54,68,80,95]){m.update(S.sample(t),1.78,t);const pos=f.geometry.attributes.position,uv=f.geometry.attributes.uv;let pinned=0,flutter=0;for(let i=0;i<pos.count;i++){if(uv.getX(i)===0){assert.ok(Math.abs(pos.getX(i))<1e-6);assert.ok(Math.abs(pos.getZ(i))<1e-6);pinned++}else flutter=Math.max(flutter,Math.abs(pos.getZ(i)))}assert.ok(pinned>=9,'full red hoist attaches to the mast');assert.ok(flutter>.01,'free edge has fabric motion')}
+ const water=m.scene.getObjectByName('sea-surface');water.geometry.computeBoundingBox();assert.ok(water.geometry.boundingBox.max.x>=1900,'water continues beyond the camera area')}
+ m.dispose();}
+ assert.ok(w.THREE.ShaderChunk.colorspace_fragment,'shader output chunk exists in shipped Three version');console.log('PASS border continuity: camera/sensor sky, thermal restoration, night crossfade, extended sea and pinned waving UAE flag. No GPU pixel assertions.');
+}finally{d.window.close()}
