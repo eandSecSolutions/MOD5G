@@ -1,0 +1,52 @@
+/* Arabic reading direction is separate from physical 3D/map coordinates. */
+html[lang=ar] :is(h1,h2,h3,.eyebrow,.step-copy,.core-summary,.security-orbit-label){letter-spacing:normal}
+html[lang=ar] .copy-zone h1 .network{letter-spacing:normal}
+html[lang=ar] :is(button,label,small,.security-visual-label,.impl-service,.sites-service,.cinema-heading,.ptt-heading){letter-spacing:normal}
+html[lang=ar] .progress span{margin-inline-start:0;margin-inline-end:auto}
+html[lang=ar] #footer{justify-content:flex-start}
+.counter,.slide-num,.step-number,.security-card-number,.focus-index,.impl-stage-index,.impl-stream-number,.impl-stream-count,.sites-component-count{unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.counter,.impl-stage-index,.sites-component-count{direction:ltr}
+.shortcut kbd,.sites-coordinates code{direction:ltr;unicode-bidi:isolate}
+.sites-coordinates code{overflow-wrap:anywhere;min-width:0}
+html[lang=ar] .shortcut kbd{font-family:'Segoe UI',Arial,sans-serif}
+html[lang=ar] .step-icon{left:auto;right:12px}
+html[lang=ar] .card-art .step-number{right:auto;left:13px}
+html[lang=ar] .card-art:after{background:linear-gradient(-90deg,#111c26a3,transparent 70%)}
+.security-detail{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.security-orbit-label bdi{font-weight:inherit}
+.sites-stage-top,.sites-view-controls{flex-wrap:wrap}
+.sites-mode{min-width:0;max-width:100%;flex-wrap:wrap}
+.sites-mode button{min-width:0;white-space:normal;text-align:center;line-height:1.4}
+.sites-coordinate,.sites-facts div{min-width:0}
+.sites-facts dd{overflow-wrap:anywhere}
+.impl-stage-controls{bottom:calc(var(--impl-copy-height,130px) + 17px)!important}
+.impl-focus{max-width:calc(100% - 38px)}
+.impl-focus-description{overflow-wrap:break-word}
+.impl-shot-navigation{direction:inherit}
+.security-flow span,.core-summary>div{min-width:0}
+@media(max-width:700px){
+ html[lang=ar] .step-icon{left:auto;right:6px}
+ html[lang=ar] .card-art .step-number{right:auto;left:7px}
+ html[lang=ar] .edge-left{left:auto;right:69px}
+ html[lang=ar] .edge-right{left:auto;right:25px}
+ .security-slide{overflow-y:auto;overflow-x:hidden;grid-template-rows:auto minmax(340px,1fr) auto;padding-bottom:10px}
+ .security-main{min-height:340px;grid-template-rows:110px minmax(230px,1fr)}
+ .security-tabs{min-height:145px}
+ .sites-stage-top{gap:7px}
+ .sites-mode{gap:3px}
+ .sites-mode button{font-size:9px;padding-inline:6px}
+ .sites-coordinates{grid-template-columns:1fr}
+ .sites-coordinates small{grid-column:1}
+ .impl-stage-controls{flex-wrap:wrap;row-gap:6px}
+ .impl-service li>b{white-space:normal;line-height:1.4}
+}
+@media(max-width:380px){
+ .sites-stage-top{inset-inline:9px}
+ .sites-view-controls{inset-inline:9px;gap:4px}
+ .sites-view-controls button{padding-inline:7px}
+ .sites-mode button span{font-size:8px}
+ .impl-shot-navigation{gap:3px}
+}
+@media(max-height:560px) and (min-width:701px){
+ .security-slide{overflow-y:auto;grid-template-rows:auto minmax(260px,1fr) 121px;padding-bottom:12px}
+}
