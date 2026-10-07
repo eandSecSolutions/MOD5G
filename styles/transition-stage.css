@@ -1,0 +1,112 @@
+/* A finite optical bridge within the stage bounds. Navigation stays above it.
+   No blur is applied to live 3D canvases or their projected markers. */
+#slideTransition{
+  --deck-transition-ms:1050ms;
+  --deck-wash:241,235,219;
+  --deck-edge:217,203,174;
+  --deck-sheen:255,248,226;
+  --deck-etch:124,105,72;
+  position:absolute;
+  inset:var(--deck-stage-top,138px) 0 var(--deck-stage-bottom,55px);
+  z-index:12;
+  overflow:hidden;
+  isolation:isolate;
+  pointer-events:none!important;
+  user-select:none;
+  opacity:0;
+  visibility:hidden;
+  contain:layout paint;
+  background:
+    radial-gradient(ellipse at 50% 45%,rgba(var(--deck-wash),.02) 15%,rgba(var(--deck-wash),.12) 68%,rgba(var(--deck-wash),.25) 100%);
+}
+[data-theme=dark] #slideTransition{
+  --deck-wash:16,28,41;
+  --deck-edge:34,51,66;
+  --deck-sheen:193,170,126;
+  --deck-etch:176,190,193;
+}
+body.deck-transitioning #slideTransition{visibility:visible}
+/* The choreography owns opacity only while navigating. This prevents the
+   shared canvas's older CSS fade from competing with the scene hand-off. */
+body.deck-transitioning #cinematicCanvas,
+body.deck-transitioning .ambient{transition:none!important}
+#slideTransition::before{
+  content:'';
+  position:absolute;
+  inset:8% -8%;
+  background:
+    radial-gradient(ellipse at 54% 46%,transparent 22%,rgba(var(--deck-edge),.075) 58%,rgba(var(--deck-edge),.17) 91%);
+  opacity:.7;
+}
+.deck-transition-sheen{
+  position:absolute;
+  inset:-12% -35%;
+  opacity:0;
+  transform:translate3d(-70%,0,0);
+  background:linear-gradient(112deg,
+    transparent 28%,
+    rgba(var(--deck-sheen),0) 37%,
+    rgba(var(--deck-sheen),.08) 44%,
+    rgba(var(--deck-sheen),.25) 49.6%,
+    rgba(var(--deck-sheen),.30) 50%,
+    rgba(var(--deck-sheen),.10) 51%,
+    rgba(var(--deck-sheen),.025) 60%,
+    transparent 70%);
+}
+.deck-transition-grain{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  background-image:
+    repeating-linear-gradient(21deg,rgba(var(--deck-etch),.26) 0 .32px,transparent .32px 4px),
+    repeating-linear-gradient(117deg,rgba(var(--deck-etch),.20) 0 .3px,transparent .3px 6px);
+  background-size:13px 11px,17px 19px;
+}
+.deck-transition-aperture{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.deck-transition-aperture::before,.deck-transition-aperture::after{content:'';position:absolute;inset-inline:0;height:4.5%;background:rgba(var(--deck-wash),.9);opacity:0}
+.deck-transition-aperture::before{top:0;transform:translateY(-100%)}
+.deck-transition-aperture::after{bottom:0;transform:translateY(100%)}
+body.deck-transitioning .deck-transition-aperture::before{animation:deck-aperture-top var(--deck-transition-ms) cubic-bezier(.22,.61,.26,1) both}
+body.deck-transitioning .deck-transition-aperture::after{animation:deck-aperture-bottom var(--deck-transition-ms) cubic-bezier(.22,.61,.26,1) both}
+@keyframes deck-aperture-top{0%{opacity:0;transform:translateY(-100%)}22%{opacity:.65;transform:translateY(0)}100%{opacity:0;transform:translateY(-100%)}}
+@keyframes deck-aperture-bottom{0%{opacity:0;transform:translateY(100%)}22%{opacity:.65;transform:translateY(0)}100%{opacity:0;transform:translateY(100%)}}
+body.deck-transitioning .deck-transition-sheen{
+  animation:deck-optical-sweep var(--deck-transition-ms) cubic-bezier(.2,.72,.25,1) both;
+  will-change:transform,opacity;
+}
+body.deck-transitioning .deck-transition-grain{
+  animation:deck-optical-texture var(--deck-transition-ms) ease-in-out both;
+}
+html[dir=rtl] body.deck-transitioning .deck-transition-sheen,
+body.deck-transitioning #slideTransition[data-direction=back] .deck-transition-sheen{animation-direction:reverse}
+html[dir=rtl] body.deck-transitioning #slideTransition[data-direction=back] .deck-transition-sheen{animation-direction:normal}
+/* On the opening, the optical bridge stays softer around the site photograph. */
+body.deck-intro #slideTransition::before{opacity:.48}
+body.deck-intro #slideTransition{background:radial-gradient(ellipse at 60% 43%,rgba(var(--deck-wash),.02) 12%,rgba(var(--deck-wash),.23) 74%,rgba(var(--deck-wash),.36))}
+@keyframes deck-optical-sweep{
+  0%{opacity:0;transform:translate3d(-70%,0,0)}
+  27%{opacity:.40}
+  48%{opacity:.58}
+  72%{opacity:.23}
+  100%{opacity:0;transform:translate3d(70%,0,0)}
+}
+@keyframes deck-optical-texture{
+  0%,100%{opacity:0}
+  34%,58%{opacity:.038}
+}
+/* Cancellation must restore an immediately readable slide. */
+body.motion-paused #slideTransition,
+body.page-hidden #slideTransition{opacity:0!important;visibility:hidden!important}
+body.motion-paused .deck-transition-sheen,
+body.motion-paused .deck-transition-grain,
+body.page-hidden .deck-transition-sheen,
+body.page-hidden .deck-transition-grain{animation:none!important;will-change:auto}
+body.motion-paused .deck-transition-aperture::before,body.motion-paused .deck-transition-aperture::after,
+body.page-hidden .deck-transition-aperture::before,body.page-hidden .deck-transition-aperture::after{animation:none!important;opacity:0!important}
+@media(max-width:700px){
+  #slideTransition{--deck-stage-top:152px;--deck-stage-bottom:49px}
+  .deck-transition-sheen{background:linear-gradient(112deg,transparent 30%,rgba(var(--deck-sheen),.05) 44%,rgba(var(--deck-sheen),.20) 50%,rgba(var(--deck-sheen),.025) 59%,transparent 70%)}
+  .deck-transition-grain{display:none}
+}
+@media(min-width:701px) and (max-height:650px){#slideTransition{--deck-stage-top:112px;--deck-stage-bottom:42px}}
+body.focus-view #slideTransition{--deck-stage-top:50px;--deck-stage-bottom:45px}
