@@ -1,0 +1,16 @@
+/* Approved header adjustments; preserve logos-left / controls-right in both languages. */
+.toolbar .brand{--logo-height:40px;direction:ltr;display:flex;align-items:center;align-self:center;height:var(--logo-height);padding-block:0;gap:9px}
+/* User-supplied horizontal artwork: show the complete emblem and bilingual name. */
+.toolbar .brand .mod-brand{display:flex;align-items:center;justify-content:center;width:160px;height:var(--logo-height);flex:none}
+.toolbar .brand .mod{display:block;width:100%;height:100%;object-fit:contain;flex:none}
+.toolbar .brand .etisalat-brand{height:var(--logo-height)}
+.csc-brand{display:flex;align-items:center;justify-content:center;width:158px;height:var(--logo-height);padding:4px;flex:none;border-radius:6px;transition:background .55s ease}
+.csc-brand .csc{display:block;width:100%;height:100%;object-fit:contain}
+html[data-theme="dark"] .csc-brand{background:transparent}
+.security-subtitle:empty{display:none}
+@media(max-width:1100px) and (min-width:701px){.toolbar .brand{gap:6px}.toolbar .brand .mod-brand{width:136px}.csc-brand{width:133px}}
+@media(max-height:650px) and (min-width:701px){.toolbar .brand{--logo-height:34px}}
+@media(max-width:700px){.toolbar .brand{--logo-height:30px;gap:4px;min-width:0;max-width:calc(100vw - 195px)}.toolbar .brand .etisalat-brand{width:48px;min-width:0;flex:0 1 48px}.toolbar .brand .mod-brand{width:106px;min-width:0;flex:0 1 106px}.csc-brand{width:70px;min-width:0;flex:0 1 70px;padding:2px}.toolbar .brand-rule{height:20px;flex:none}}
+@media(max-width:380px){.toolbar .brand{gap:3px}.toolbar .brand .etisalat-brand{width:40px}.csc-brand{width:57px}.toolbar .tools .icon-button{width:23px}.toolbar .tools .language{min-width:36px;padding-inline:3px}}
+@media(max-height:450px) and (min-width:701px){.csc-brand{width:130px}}
+.motion-paused .csc-brand{transition:none}
