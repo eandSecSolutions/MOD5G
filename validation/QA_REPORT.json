@@ -1,0 +1,214 @@
+{
+  "passed": true,
+  "completedAt": "2026-10-06T11:28:40.043Z",
+  "scope": "Source PDF alignment, generated asset contracts and automated DOM/controller tests across 15 slides, EN/AR and day/night, plus static CSS coverage. Real GSAP/Three/Leaflet where exercised; substitute WebGL, layout and native modal APIs. No browser/GPU pixel validation.",
+  "results": [
+    {
+      "file": "navigation-typography.cjs",
+      "passed": true,
+      "seconds": 4.202,
+      "stdout": "PASS navigation-typography: 60 roots/language/theme cases, actual GSAP/SplitText, preserved opening/closing hero timing and normalized v32 baseline.",
+      "stderr": ""
+    },
+    {
+      "file": "scrollbar-audit.cjs",
+      "passed": true,
+      "seconds": 0.401,
+      "stdout": "{\n  \"result\": \"PASS \u2014 static CSS/source audit\",\n  \"stylesheetsParsed\": 23,\n  \"coveredSelectors\": [\n    \"dialog\",\n    \".cap-film\",\n    \".cinema-slide\",\n    \".ov25-story-copy\",\n    \".ov25-slide\",\n    \".ptt-slide\",\n    \".ptt-brief\",\n    \".leaflet-control-layers-scrollbar\",\n    \".leaflet-popup-scrolled\",\n    \".sites-detail-copy\",\n    \".sites-slide\",\n    \".sites-slide.sites-satellite-active\",\n    \".implementation-slide\",\n    \".impl-task-scroll\",\n    \".impl-pip-scroll\",\n    \".closing-slide\",\n    \".security-detail\",\n    \".security-slide\",\n    \".border-gina-scroll\",\n    \".border-slide\",\n    \".border-chapters\"\n  ],\n  \"palettes\": [\n    {\n      \"theme\": \":root\",\n      \"contrast\": {\n        \"--mod-scroll-thumb\": 3.33,\n        \"--mod-scroll-thumb-hover\": 4.58,\n        \"--mod-scroll-thumb-active\": 6.32\n      }\n    },\n    {\n      \"theme\": \":root[data-theme=dark]\",\n      \"contrast\": {\n        \"--mod-scroll-thumb\": 4.91,\n        \"--mod-scroll-thumb-hover\": 6.76,\n        \"--mod-scroll-thumb-active\": 9.15\n      }\n    }\n  ],\n  \"limitations\": \"No browser or visual scrollbar verification was performed. This audit does not measure rendering, platform scrollbar appearance, layout, or real keyboard/touch interactions.\"\n}\n",
+      "stderr": "",
+      "rerunReason": "Retained original scrollbar stylesheet as the final stylesheet after adding scoped header styles."
+    },
+    {
+      "file": "intro-ambience.cjs",
+      "passed": true,
+      "seconds": 0.408,
+      "stdout": "{\"passed\":true,\"checks\":13,\"scope\":\"Real GSAP; jsdom photo registration, theme grouping, explicit Motion, hidden/slide pause, bfcache and terminal cleanup. No browser or compositor validation.\"}",
+      "stderr": ""
+    },
+    {
+      "file": "pip-source-alignment.cjs",
+      "passed": true,
+      "seconds": 0.373,
+      "stdout": "PASS: fixture provenance identifies uploaded PDF page 14\nPASS: all eight ticks match the PDF, including 05 Oct 2025\nPASS: four workstreams and twenty source task labels match the PDF\nPASS: all twenty-one bars follow independently measured raster intervals\nPASS: historical source marker has no live-today or false-weekday claim\nPASS: implementation lifecycle and modal gates use inserted-slide index 13\n{\"checks\":6,\"passed\":6,\"maximumEdgeErrorPx\":1.219,\"limitations\":[\"Raster extents are visual approximations, not approved dates or durations.\",\"CSS grid columns are evenly spaced; source artwork has unequal column widths and an inconsistent weekday marker.\",\"Native layout and GPU behavior require an authorized browser/device run.\"]}",
+      "stderr": ""
+    },
+    {
+      "file": "pip-overlay.cjs",
+      "passed": true,
+      "seconds": 38.896,
+      "stdout": "PASS: en/light/motion=false: all stages retain full historical schedule and close state\nPASS: en/light/motion=true: all stages retain full historical schedule and close state\nPASS: en/dark/motion=false: all stages retain full historical schedule and close state\nPASS: en/dark/motion=true: all stages retain full historical schedule and close state\nPASS: ar/light/motion=false: all stages retain full historical schedule and close state\nPASS: ar/light/motion=true: all stages retain full historical schedule and close state\nPASS: ar/dark/motion=false: all stages retain full historical schedule and close state\nPASS: ar/dark/motion=true: all stages retain full historical schedule and close state\nPASS: focus boundaries, Escape, native cancel and backdrop close without changing immersive state\nPASS: delivery guide pauses on open; no stage changes or rendered frames while open\nPASS: shell navigation and shortcuts remain contained during full PIP\nPASS: leave and language/context rebuild dispose dialog, do not steal focus or retain stale modal callbacks\nPASS: full schedule remains available after WebGL context loss\n{\"checks\":13,\"passed\":13,\"failed\":[],\"maximumEdgeErrorPx\":1.219,\"limitations\":[\"Native browser layout, modal top-layer/inert behavior, GPU rendering and pixel fidelity require an authorized browser/device run.\"]}",
+      "stderr": ""
+    },
+    {
+      "file": "capability-source.cjs",
+      "passed": true,
+      "seconds": 0.331,
+      "stdout": "{\n  \"source\": \"MOD POC OVER 5G PULSE NETWORK 02-10-2026.pdf\",\n  \"pages\": [\n    8,\n    9,\n    10,\n    11\n  ],\n  \"mode\": \"source-only; no browser\",\n  \"target\": \"MOD_Pulse_v0.42.0\",\n  \"passed\": 19,\n  \"failures\": []\n}",
+      "stderr": ""
+    },
+    {
+      "file": "opening-security.cjs",
+      "passed": true,
+      "seconds": 3.081,
+      "stdout": "{\"passed\":true,\"cases\":48,\"scope\":\"Real GSAP and Three geometry; jsdom dimensions and GPU environment/render substitutes. Intro, approach and security controls, themes/languages, motion/visibility and bfcache.\"}",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "shell-focus.cjs",
+      "passed": true,
+      "seconds": 0.953,
+      "stdout": "PASS section keyboard focus survives section rebuilds (EN/AR, motion on/off)",
+      "stderr": ""
+    },
+    {
+      "file": "shell-behavior.cjs",
+      "passed": true,
+      "seconds": 1.486,
+      "stdout": "PASS 3152 shell assertions; real shell/navigation/transition code, DOM only",
+      "stderr": ""
+    },
+    {
+      "file": "navigation-shell.cjs",
+      "passed": true,
+      "seconds": 1.584,
+      "stdout": "PASS navigation-shell: 3428 assertions across all 15 positions, EN/AR, motion on/off, chapters, groups, boundaries and deep links.",
+      "stderr": ""
+    },
+    {
+      "file": "land-border-contract.cjs",
+      "passed": true,
+      "seconds": 0.313,
+      "stdout": "PASS land-border-contract: replacement routing; coherent incident ordering; deterministic seek; complete EN/AR stage explanations.",
+      "stderr": ""
+    },
+    {
+      "file": "land-border-sign.cjs",
+      "passed": true,
+      "seconds": 1.496,
+      "stdout": "PASS territory marker: fence clearance, freestanding flag and articulated UAE arm patches.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "land-border-model.cjs",
+      "passed": true,
+      "seconds": 1.454,
+      "stdout": "PASS land-border-model: shared 3D world, real actors, seven framed shots, camera/drone feed registration and readable night lighting.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "land-border-runtime.cjs",
+      "passed": true,
+      "seconds": 6.592,
+      "stdout": "PASS land-border runtime: 8 EN/AR/theme/motion combinations; seven chapters; same-world drone view; replay/pause/seek; keyboard containment; end hold; context recovery; disposal. GPU/layout substituted.",
+      "stderr": ""
+    },
+    {
+      "file": "land-border-sensors.cjs",
+      "passed": true,
+      "seconds": 1.517,
+      "stdout": "PASS v39: airborne surveillance, open mountains/mobile tower, no airframe obstruction, synchronized false-colour thermal pass and material restoration.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "land-border-choreography.cjs",
+      "passed": true,
+      "seconds": 1.726,
+      "stdout": "PASS choreography: close opening, all-timeline framing across four aspects, delayed patrol, boarding visibility/seek, false-colour thermal, compact scene layout.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "border-continuity.cjs",
+      "passed": true,
+      "seconds": 2.303,
+      "stdout": "PASS border continuity: camera/sensor sky, thermal restoration, night crossfade, extended sea and pinned waving UAE flag. No GPU pixel assertions.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "coastal-tower-foundation.cjs",
+      "passed": true,
+      "seconds": 1.463,
+      "stdout": "PASS tower compound: no rock triangles intrude, and mast feet rest on the concrete pad.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "coastal-border.cjs",
+      "passed": true,
+      "seconds": 1.656,
+      "stdout": "PASS coastal border: source routing, vessel separation, boarding, 4-aspect framing, water/thermal scene, deterministic timeline and approach asset paths.",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "coastal-runtime.cjs",
+      "passed": true,
+      "seconds": 5.784,
+      "stdout": "PASS coastal runtime: 8 EN/AR/theme/motion combinations; seven chapters; same-world drone view; replay/pause/seek; keyboard containment; end hold; context recovery; disposal. GPU/layout substituted.",
+      "stderr": ""
+    },
+    {
+      "file": "usecases-regressions.cjs",
+      "passed": true,
+      "seconds": 6.249,
+      "stdout": "PASS Caller and dispatch play controls restart a completed story\nPASS Unavailable WebGL does not offer guided playback that cannot run\nPASS Context loss suspends guided playback controls and restoration re-enables them",
+      "stderr": ""
+    },
+    {
+      "file": "usecases-cinema-regressions.cjs",
+      "passed": true,
+      "seconds": 7.64,
+      "stdout": "\u2714 body GINA removes the inset feed labels while displaying the full feed (2167.555385ms)\n\u2714 context loss removes the old live feed inset from the fallback (4182.246641ms)\n\u2714 photo dialog contains deck navigation keys until it closes (722.501404ms)\n\u2714 unavailable WebGL exposes static fallback controls without a false playback state (39.690203ms)\n\u2139 tests 4\n\u2139 suites 0\n\u2139 pass 4\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 7118.421871",
+      "stderr": ""
+    },
+    {
+      "file": "usecases-matrix.cjs",
+      "passed": true,
+      "seconds": 28.488,
+      "stdout": "PASS overview/PTT/caller/dispatch en/light/motion=true\nPASS overview/PTT/caller/dispatch en/light/motion=false\nPASS overview/PTT/caller/dispatch en/dark/motion=true\nPASS overview/PTT/caller/dispatch en/dark/motion=false\nPASS overview/PTT/caller/dispatch ar/light/motion=true\nPASS overview/PTT/caller/dispatch ar/light/motion=false\nPASS overview/PTT/caller/dispatch ar/dark/motion=true\nPASS overview/PTT/caller/dispatch ar/dark/motion=false\nPASS 578 source-controller assertions; WebGL rendering itself is substituted.",
+      "stderr": ""
+    },
+    {
+      "file": "selection.cjs",
+      "passed": true,
+      "seconds": 14.725,
+      "stdout": "PASS: equipment selection, 24 site/language/theme cases, persistent picker, background miss, drag/cancel, RTL keyboard, satellite switching, motion and disposal",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "deployment-map.cjs",
+      "passed": true,
+      "seconds": 19.961,
+      "stdout": "PASS: geographic map theme updates existing vectors\nPASS: loaded satellite imagery hides vector fallback\nPASS: failed satellite navigation restores geographic context\nPASS: satellite imagery recovery removes fallback\nPASS: map zoom limits and unbounded panning\nPASS: area navigation retains each map camera and fit resets it\nPASS: six reference coordinates and markers match in EN/AR and light/dark\nPASS: motion, guided tour, visibility and leaving lifecycle\nPASS: WebGL context loss preserves map access and rebuilds safely\nPASS: deployment geographic/satellite regressions and navigation matrix",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "implementation-closing.cjs",
+      "passed": true,
+      "seconds": 42.1,
+      "stdout": "PASS: implementation en/light/motion=false: four filters, 20 tasks, 21 bars\nPASS: implementation en/light/motion=true: four filters, 20 tasks, 21 bars\nPASS: implementation en/dark/motion=false: four filters, 20 tasks, 21 bars\nPASS: implementation en/dark/motion=true: four filters, 20 tasks, 21 bars\nPASS: implementation ar/light/motion=false: four filters, 20 tasks, 21 bars\nPASS: implementation ar/light/motion=true: four filters, 20 tasks, 21 bars\nPASS: implementation ar/dark/motion=false: four filters, 20 tasks, 21 bars\nPASS: implementation ar/dark/motion=true: four filters, 20 tasks, 21 bars\nPASS: implementation sequence timing, pause, visibility, reduced motion and leave\nPASS: implementation context loss exposes usable task list, restoration and stale canvas isolation\nPASS: closing en/light/motion=false: actions, replay and leave\nPASS: closing en/light/motion=true: actions, replay and leave\nPASS: closing en/dark/motion=false: actions, replay and leave\nPASS: closing en/dark/motion=true: actions, replay and leave\nPASS: closing ar/light/motion=false: actions, replay and leave\nPASS: closing ar/light/motion=true: actions, replay and leave\nPASS: closing ar/dark/motion=false: actions, replay and leave\nPASS: closing ar/dark/motion=true: actions, replay and leave\nPASS: closing visibility, reduced motion and context restoration\n{\"checks\":19,\"passed\":19,\"failed\":[],\"limitations\":[\"WebGL rendering, CSS layout and pointer hit areas need an authorized browser or device run.\"]}",
+      "stderr": "Scripts \"build/three.js\" and \"build/three.min.js\" are deprecated with r150+, and will be removed with r160. Please use ES Modules or alternatives: https://threejs.org/docs/index.html#manual/en/introduction/Installation"
+    },
+    {
+      "file": "usecases-cinema-matrix.cjs",
+      "passed": true,
+      "seconds": 13.257,
+      "stdout": "PASS cinema lifecycle drone\nPASS cinema lifecycle ai\nPASS cinema lifecycle body\nPASS cinema lifecycle matrix: visibility, views, timeline, recovery, RTL, reduced motion, disposal",
+      "stderr": ""
+    }
+  ],
+  "version": "0.42.0",
+  "scopedChecks": {
+    "passed": true,
+    "translationEntries": 1267,
+    "translationFiles": 16,
+    "slideNavigationEditsApplied": 15,
+    "cinematicStoryEditApplied": true,
+    "missingDictionaryFallback": true,
+    "logicEquivalentFiles": 53,
+    "preservedExistingAssetsVendorAndStyles": 137,
+    "helpClean": true,
+    "securitySubtitleRemovedBothLanguages": true,
+    "allOriginalImageryUnchanged": true,
+    "browserGPUVisualTested": false
+  },
+  "translatorFiles": "content/ar/01-introduction.js through 15-closing.js plus 00-shared.js",
+  "notes": "All DOM runtime suites were run with the translator dictionaries preloaded in index.html order. Layout and GPU remain substituted, not browser-rendered."
+}
