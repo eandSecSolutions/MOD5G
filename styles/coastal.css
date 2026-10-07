@@ -1,0 +1,16 @@
+/* The accepted tall theatre gains a distinct maritime identity. */
+.coastal-view .ambient,.coastal-view .material-caption{visibility:hidden}
+.coastal-slide .border-world{background:#20566a}
+.coastal-slide .border-vignette{background:linear-gradient(180deg,#071d3348,transparent 20%,transparent 70%,#04182ce8)}
+.coastal-slide .border-boundary-key{background:#092c3cde;border-color:#8bb9b58c;color:#e6f5ea;font-size:10px;max-width:44%}
+.coastal-slide .border-boundary-key>i{border-color:#a5d6ce}
+.coastal-slide .border-mini-map{background:linear-gradient(110deg,var(--glass-b),#548e9322)}
+.coastal-slide .border-map-ridges{stroke-width:3;stroke:#a7aa88;opacity:.6}
+.coastal-slide .border-map-road{stroke:#8bbab5;stroke-width:1.5;stroke-dasharray:3 4;opacity:.5}
+.coastal-slide .border-map-people{fill:#cb8a63}
+.coastal-slide .border-gina>header{background:linear-gradient(100deg,#4388910b,transparent)}
+.coastal-slide .border-role{border-inline-start-color:#6d9b99}
+.coastal-slide .border-action{max-width:650px}
+.coastal-slide .border-feed-frame{border-color:#a0cec4aa}
+.coastal-slide .border-network-source svg{color:#74a29d}
+@media(max-width:760px){.coastal-slide .border-boundary-key{max-width:calc(100% - 32px);font-size:8px}}
