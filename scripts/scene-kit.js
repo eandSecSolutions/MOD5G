@@ -1,0 +1,20 @@
+/* Independent scene primitives; all textures are local procedural canvases. */
+(()=>{const T=THREE;function create(dark){const scene=new T.Scene(),camera=new T.PerspectiveCamera(37,1,.08,180),resources=[],animated=[];
+const mat=(color,r=.6,m=.15,extra={})=>{let a=new T.MeshStandardMaterial({color,roughness:r,metalness:m,...extra});resources.push(a);return a};
+const stone=mat(0xcabea4,.92),ivory=mat(0xe8e2d4,.65),gold=mat(0xad925e,.3,.7),navy=mat(0x243641,.5,.4),glass=mat(0x456b78,.2,.65),leaf=mat(0x728977,.9);
+let c=document.createElement('canvas');c.width=c.height=256;let ctx=c.getContext('2d');ctx.fillStyle='#ccc1a8';ctx.fillRect(0,0,256,256);for(let i=0;i<5000;i++){ctx.fillStyle=i%2?'#bbaf98':'#dfd5bf';ctx.fillRect((i*71)%256,(i*139+i*i)%256,1,2)}let tx=new T.CanvasTexture(c);tx.wrapS=tx.wrapT=T.RepeatWrapping;tx.repeat.set(4,4);tx.colorSpace=T.SRGBColorSpace;stone.map=tx;resources.push(tx);
+function g(p=scene,x=0,y=0,z=0){let q=new T.Group();q.position.set(x,y,z);p.add(q);return q}function mesh(p,geo,m,x=0,y=0,z=0){let o=new T.Mesh(geo,m);o.position.set(x,y,z);o.castShadow=o.receiveShadow=true;p.add(o);resources.push(geo);return o}function box(p,x,y,z,w,h,d,m=ivory){return mesh(p,new MOD_THREE_ADDONS.RoundedBoxGeometry(w,h,d,2,Math.min(.06,h/4,w/4,d/4)),m,x,y,z)}function cyl(p,x,y,z,r,h,m=gold){return mesh(p,new T.CylinderGeometry(r,r,h,48),m,x,y,z)}function ring(p,x,y,z,r,t=.025,m=gold){let o=mesh(p,new T.TorusGeometry(r,t,8,96),m,x,y,z);o.rotation.x=Math.PI/2;return o}
+scene.add(new T.HemisphereLight(0xe1f0ff,0x9c8968,dark?1.6:2.3));let sun=new T.DirectionalLight(0xffedcf,3);sun.position.set(-7,15,10);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-24,right:24,top:24,bottom:-24,far:70});sun.shadow.bias=-.0005;sun.shadow.normalBias=.035;scene.add(sun);let fill=new T.DirectionalLight(0x9dcee7,1.2);fill.position.set(10,8,-12);scene.add(fill);
+return {scene,camera,mat,g,mesh,box,cyl,ring,stone,ivory,gold,navy,glass,leaf,animated,animate(t){animated.forEach(f=>f(t))},dispose(){new Set(resources).forEach(r=>r.dispose())}}}
+function coast(k){const {scene,box,cyl,ring,g,mesh,mat,stone,ivory,gold,navy,glass}=k;
+const water=mat(0x478d99,.24,.45);let sea=mesh(scene,new T.PlaneGeometry(80,70,60,60),water,0,-.5,0);sea.rotation.x=-Math.PI/2;sea.castShadow=false;const pos=sea.geometry.attributes.position,orig=new Float32Array(pos.array);k.animated.push(t=>{for(let i=0;i<pos.count;i++)pos.setZ(i,Math.sin(orig[i*3]*.6+t*.65)*.045+Math.cos(orig[i*3+1]*.9+t*.45)*.025);pos.needsUpdate=true;sea.geometry.computeVertexNormals()});
+box(scene,-2,-.45,1.2,22,.6,11,stone);box(scene,-2,-.1,1.2,21,.14,10,ivory);
+for(let i=0;i<70;i++){let a=i/70*Math.PI*2,x=-2+Math.cos(a)*11.3,z=1.2+Math.sin(a)*6;let rock=mesh(scene,new T.DodecahedronGeometry(.55+(i%5)*.08,0),stone,x,-.24,z);rock.scale.set(1.4,.8,1.1);rock.rotation.set(i*.8,i*.53,0)}
+// Glazed coastal pavilion and timber jetty, absent from the dispatch scene.
+box(scene,-1.8,.8,-2.8,4.8,1.6,2.7,glass);box(scene,-1.8,1.72,-2.8,5.8,.24,3.7,ivory);for(let x of [-4,-2.5,-1,.5])box(scene,x,.85,-1.4,.12,1.7,.14,gold);box(scene,-1.8,.1,-2.8,5.5,.2,3.5,stone);
+box(scene,6,.1,-6.3,2.5,.3,9,stone);for(let i=0;i<32;i++)box(scene,6,.28,-10.5+i*.26,2.4,.07,.19,ivory);for(let z=-10;z<-2;z+=1.2)for(let x of [4.85,7.15]){cyl(scene,x,.75,z,.035,1,gold);box(scene,x,1.23,z,.045,.045,1.3,gold)}
+let tower=g(scene,7,0,2);cyl(tower,0,1.8,0,.42,3.6,ivory);cyl(tower,0,3.7,0,.8,.2,gold);cyl(tower,0,4.2,0,.65,.8,glass);cyl(tower,0,4.68,0,.82,.17,ivory);ring(tower,0,3.9,0,.94,.035);for(let i=0;i<8;i++){let a=i*Math.PI/4;cyl(tower,Math.cos(a)*.94,3.65,Math.sin(a)*.94,.025,.5,gold)}
+for(let i=0;i<4;i++){let a=g(scene,1+i*1.1,.55,3.5);let panel=box(a,0,0,0,.85,.08,1.5,navy);panel.rotation.x=-.3;for(let j=0;j<5;j++)box(a,0,.05,-.6+j*.3,.81,.01,.012,gold);cyl(a,0,-.3,0,.05,.6,gold)}
+for(let i=0;i<5;i++){let a=g(scene,-8+i*3.2,.1,-3.5);box(a,0,.15,0,1,.3,.6,stone);mesh(a,new T.IcosahedronGeometry(.45,1),k.leaf,0,.48,0)}
+}
+window.MOD_SCENE_KIT={create,coast};})();
