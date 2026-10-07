@@ -1,0 +1,17 @@
+ETISALAT BRAND PREFERENCE — supplied by the user, 5 October 2026
+
+For future Etisalat / eand / e& projects, use these supplied Etisalat logos.
+Light backgrounds: etisalat-red.png.
+Dark backgrounds: etisalat-white.png.
+Keep transparency and aspect ratio. Do not redraw, recolor, stretch or generate substitutes.
+Use the supplied white lockup directly for dark themes, with a smooth theme crossfade.
+The supplied PNG bytes are preserved exactly; their transparent margins are intentional.
+In this presentation, logos remain left and controls right in English AND Arabic.
+
+Original source identities:
+Red: 361084F2-2A63-4371-A84A-41A962CF318A.png
+libfile_f653178ca29c81919d184f59718839ca
+White: 59DA5C75-8033-4059-A8E1-EE234D5DBED3.png
+libfile_f1c562b6768c8191bf3ade7f6e1fc05d
+
+This records the user's working brand preference; it is not independent reporting about a company rebrand.
