@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "node run-all.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "@napi-rs/canvas": "0.1.100",
+    "rrweb-cssom": "0.8.0"
+  }
+}
